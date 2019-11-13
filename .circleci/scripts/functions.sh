@@ -32,8 +32,8 @@ protected-branches() {
 gatsby-tokens() {
 # Set GitHub API token
     touch $BUILD_PATH/gatsby/.env.production
-    echo "GITHUB_API=$GITHUB_TOKEN" > .env.production
-    echo "SEGMENT_KEY=$SEGMENT_KEY" >> .env.production
+    echo "GITHUB_API=$GITHUB_TOKEN" > $BUILD_PATH/gatsby/.env.production
+    echo "SEGMENT_KEY=$SEGMENT_KEY" >> $BUILD_PATH/gatsby/.env.production
 }
 
 getExistingTerminusEnvs() {
