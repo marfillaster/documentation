@@ -8,19 +8,19 @@ GITHUB_API_URL="https://api.github.com/repos/$CI_PROJECT_USERNAME/$CI_PROJECT_RE
 set -e
 
 # Check if we are NOT on the master branch and this is a PR
-if [[ ${CI_BRANCH} != "master" && -z ${CI_PR_URL} ]];
+if [[ ${CIRCLE_BRANCH} != "master" && -z ${CI_PULL_REQUEST} ]];
 then
   echo -e "\nLighthouse audits will only run if we are not on the master branch and making a pull request"
   exit 0;
 fi
 
-echo -e "\nProcessing pull request #$PR_NUMBER"
+echo -e "\nProcessing pull request #$CIRCLE_PR_NUMBER"
 
-if [[ ${CI_BRANCH} == "master" ]];
+if [[ ${CIRCLE_BRANCH} == "master" ]];
 then
     # Ping the dev environment to wake it from sleep
     echo -e "\nPinging the dev environment to wake it from sleep..."
-    curl -I "$DEV_SITE_URL" >/dev/null
+    curl -I "$MULTIDEV_SITE_URL" >/dev/null
 
     # Ping the live environment to wake it from sleep
     echo -e "\nPinging the live environment to wake it from sleep..."
