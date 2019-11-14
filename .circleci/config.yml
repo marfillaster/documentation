@@ -61,8 +61,7 @@ jobs:
           at: .
       - run:
           name: Import Functions and Variables
-          command: |
-            source .circleci/scripts/set-env.sh
+          command: .circleci/scripts/set-env.sh
       - run:
           name: Serve Gatsby
           command: |
@@ -98,8 +97,7 @@ jobs:
           at: .
       - run:
           name: Import Functions and Variables
-          command: |
-            source .circleci/scripts/set-env.sh
+          command: .circleci/scripts/set-env.sh
       - run:
           name: Install rsync
           command: sudo apt-get install -y rsync
