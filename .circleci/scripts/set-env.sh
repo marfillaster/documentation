@@ -28,7 +28,7 @@ fi
 
 # Export Variables
 echo "export MULTIDEV_NAME=$MULTIDEV_NAME" >> $BASH_ENV
-echo "export MULTIDEV_SITE_URL='https://${MULTIDEV_NAME}-static-docs.pantheonsite.io'" >> $BASH_ENV
+echo "export MULTIDEV_SITE_URL='https://${MULTIDEV_NAME}-static-docs.pantheonsite.io/docs'" >> $BASH_ENV
 echo "export CI_BUILD_URL='${CIRCLE_BUILD_URL}'" >> $BASH_ENV
 echo "export CI_NODE_INDEX='${CIRCLE_NODE_INDEX}'" >> $BASH_ENV
 echo "export CI_REPOSITORY_URL='${CIRCLE_REPOSITORY_URL}'" >> $BASH_ENV
