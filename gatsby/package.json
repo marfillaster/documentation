@@ -77,6 +77,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "lighthouse-run": "node ../.circleci/tests/lighthouse/lighthouse.run.js",
+    "lighthouse-test": "jest ../.circleci/tests/lighthouse/lighthouse.test.js",
+    "lighthouse-pr-comment": "node ../.circleci/tests/lighthouse/createPullRequestComment.js"
   }
 }
