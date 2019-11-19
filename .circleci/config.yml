@@ -28,6 +28,7 @@ jobs:
             touch .env.production
             echo "GITHUB_API=$GITHUB_TOKEN" >> .env.production
             echo "SEGMENT_KEY=$SEGMENT_KEY" >> .env.production
+            echo "GTM_ID=$GTM_ID" >> .env.production
       - run:
           name: Update Terminus data files
           command: |
