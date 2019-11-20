@@ -46,6 +46,7 @@
     "gatsby-transformer-sharp": "^2.3.0",
     "gatsby-transformer-yaml": "^2.2.15",
     "highlight.js": "^9.15.8",
+    "jest": "^24.9.0",
     "node-font-awesome": "^1.0.2",
     "node-sass": "^4.12.0",
     "prismjs": "^1.15.0",
@@ -77,8 +78,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "lighthouse-run": "node ../.circleci/tests/lighthouse/lighthouse.run.js",
-    "lighthouse-test": "jest ../.circleci/tests/lighthouse/lighthouse.test.js",
-    "lighthouse-pr-comment": "node ../.circleci/tests/lighthouse/createPullRequestComment.js"
+    "lighthouse-run": "node ./tests/lighthouse/lighthouse.run.js",
+    "lighthouse-test": "jest ./tests/lighthouse/lighthouse.test.js",
+    "lighthouse-pr-comment": "node ./tests/lighthouse/createPullRequestComment.js"
   }
 }

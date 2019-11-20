@@ -1,4 +1,4 @@
-iconst fs = require('fs');
+const fs = require('fs');
 
 const lighthouseConstants = require("./lighthouse-constants");
 
