@@ -38,8 +38,8 @@ const launchChromeAndRunLighthouse = (
             passName: 'onlyPass',
             useThrottling: false
           },
-        ]
-        // onlyCategories: ['performance']
+        ],
+        //onlyCategories: ['performance, accessibility, best-practices']
       },
     }
   ) =>

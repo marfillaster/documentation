@@ -69,8 +69,8 @@ pullRequestMessage += `
 
 Lighthouse Audit Reports:
 
-- [\`pr-${process.env.PR_NUMBER}\` HTML Report](${liveReportURL})
-- [\`Pantheon Docs\` HTML Report](${devReportURL})
+- [\`pr-${process.env.PR_NUMBER}\` HTML Report](${devReportURL})
+- [\`Pantheon Docs\` HTML Report](${liveReportURL})
 `;
 
 async function getPullRequestLighthouseComments() {
