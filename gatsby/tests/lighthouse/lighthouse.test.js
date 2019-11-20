@@ -6,9 +6,9 @@ const devData = JSON.parse(fs.readFileSync(lighthouseConstants.devJSONFile));
 const referenceData = JSON.parse(fs.readFileSync(lighthouseConstants.referenceJSONFile));
 
 
-test("The performance score is greater than 90", () => {
+test("The performance score is greater than 80", () => {
   expect(devData.lhr.categories.performance.score)
-  .toBeGreaterThanOrEqual(0.9)
+  .toBeGreaterThanOrEqual(0.8)
 });
 
 test(`The performance score drops no more than 3%`, () => {
@@ -16,9 +16,9 @@ test(`The performance score drops no more than 3%`, () => {
     .toBeGreaterThanOrEqual(referenceData.lhr.categories.performance.score - 0.03)
 });
 
-test("The best practices score is greater than 90", () => {
+test("The best practices score is greater than 80", () => {
   expect(devData.lhr.categories['best-practices'].score)
-  .toBeGreaterThanOrEqual(0.9)
+  .toBeGreaterThanOrEqual(0.8)
 });
 
 test("The best practices score drops no more than 3%", () => {

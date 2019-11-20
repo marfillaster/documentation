@@ -19,7 +19,7 @@ module.exports = {
 
     getReferenceURL: () => {
         let referenceURL;
-        referenceURL = "https://pantheon.io/docs";
+        referenceURL = "https://pantheon.io/docs/";
         return referenceURL;
     },
 
