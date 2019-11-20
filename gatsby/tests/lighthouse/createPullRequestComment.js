@@ -57,7 +57,7 @@ const scoresToReport = [
 let pullRequestMessage = `
 Lighthouse Audit Results:
 
-| Description | Live | pr-${process.env.CIRCLE_PR_NUMBER} | Difference |
+| Description | Live | pr-${process.env.PR_NUMBER} | Difference |
 | --- | --- | --- | --- |`;
 
 scoresToReport.map(scoreObj => {
@@ -69,7 +69,7 @@ pullRequestMessage += `
 
 Lighthouse Audit Reports:
 
-- [\`pr-${process.env.CIRCLE_PR_NUMBER}\` HTML Report](${liveReportURL})
+- [\`pr-${process.env.PR_NUMBER}\` HTML Report](${liveReportURL})
 - [\`Pantheon Docs\` HTML Report](${devReportURL})
 `;
 
@@ -77,9 +77,9 @@ async function getPullRequestLighthouseComments() {
   let response;
   try {
     response = await octokit.issues.listComments({
-      owner: process.env.CIRCLE_PROJECT_USERNAME,
-      repo: process.env.CIRCLE_PROJECT_REPONAME,
-      issue_number: process.env.CIRCLE_PR_NUMBER,
+      owner: process.env.CI_PROJECT_USERNAME,
+      repo: process.env.CI_PROJECT_REPONAME,
+      issue_number: process.env.PR_NUMBER,
       per_page: 100
     });
   } catch (err) {
@@ -97,8 +97,8 @@ async function getPullRequestLighthouseComments() {
 async function deleteCommentOnPullRequest(commentID) {
   try {
     octokit.issues.deleteComment({
-      owner: process.env.CIRCLE_PROJECT_USERNAME,
-      repo: process.env.CIRCLE_PROJECT_REPONAME,
+      owner: process.env.CI_PROJECT_USERNAME,
+      repo: process.env.CI_PROJECT_REPONAME,
       comment_id: commentID
     });
   } catch (err) {
@@ -116,9 +116,9 @@ async function deleteCommentOnPullRequest(commentID) {
   }
 
   await octokit.issues.createComment({
-    owner: process.env.CIRCLE_PROJECT_USERNAME,
-    repo: process.env.CIRCLE_PROJECT_REPONAME,
-    issue_number: process.env.CIRCLE_PR_NUMBER,
+    owner: process.env.CI_PROJECT_USERNAME,
+    repo: process.env.CI_PROJECT_REPONAME,
+    issue_number: process.env.PR_NUMBER,
     body: pullRequestMessage
   });
 
