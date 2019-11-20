@@ -35,7 +35,7 @@ echo "export CI_PROJECT_USERNAME='${CIRCLE_PROJECT_USERNAME}'" >> $BASH_ENV
 echo "export CI_PROJECT_REPONAME='${CIRCLE_PROJECT_REPONAME}'" >> $BASH_ENV
 echo "export CI_NODE_INDEX='${CIRCLE_NODE_INDEX}'" >> $BASH_ENV
 echo "export CI_REPOSITORY_URL='${CIRCLE_REPOSITORY_URL}'" >> $BASH_ENV
-echo "export ARTIFACTS_DIR_URL='${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/artifacts'" >> $BASH_ENV
+echo "export ARTIFACTS_DIR_URL='${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/'" >> $BASH_ENV
 echo "export ARTIFACTS_FULL_DIR='${BUILD_PATH}/artifacts'" >> $BASH_ENV
 
 # Export functions
