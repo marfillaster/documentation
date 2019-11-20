@@ -37,7 +37,7 @@ const launchChromeAndRunLighthouse = (
           {
             passName: 'onlyPass',
             useThrottling: false
-          }
+          },
         ]
         // onlyCategories: ['performance']
       },
