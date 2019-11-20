@@ -117,7 +117,7 @@ jobs:
       - image: circleci/php:7.2-cli-node-browsers
         environment:
           BUILD_PATH: /home/circleci/build
-    working_directory: ~/build/gatsby
+    working_directory: ~/build/
     steps:
       - attach_workspace:
           at: .
@@ -128,7 +128,7 @@ jobs:
           name: Lighthouse Audit
           command: .circleci/tests/lighthouse/run
       - store_artifacts:
-          path: lighthouse_data/
+          path: gatsby/lighthouse_data/
           destination: lighthouse_data/
 
   deploy:
