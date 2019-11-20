@@ -19,7 +19,7 @@ const referenceURL = lighthouseConstants.getReferenceURL();
 const launchChromeAndRunLighthouse = (
     url,
     opts = {
-      chromeFlags: ['--headless'],
+      //chromeFlags: ['--headless'],
     },
     config = {
       extends: 'lighthouse:default',
