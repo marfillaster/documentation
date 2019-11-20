@@ -37,10 +37,10 @@ const launchChromeAndRunLighthouse = (
           {
             passName: 'onlyPass',
             useThrottling: false,
-            skipAudits: ['robots-txt']
+            skipAudits: ['is-crawlable']
           },
         ],
-        //onlyCategories: ['performance, accessibility, best-practices']
+        onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo']
       },
     }
   ) =>
