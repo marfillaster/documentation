@@ -7,7 +7,7 @@
 source $BUILD_PATH/.circleci/scripts/functions.sh
 
 # Skip deploying if indicated in the last commit message
-if ./skip-rebuild.sh
+if skip-preview
 then
     exit 0
 fi
