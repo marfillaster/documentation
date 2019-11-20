@@ -24,7 +24,9 @@ const launchChromeAndRunLighthouse = (
     config = {
       extends: 'lighthouse:default',
       settings: {
-        output: ['html']
+        output: ['html'],
+        emulatedFormFactor: 'desktop',
+        useThrottling: false
         // onlyCategories: ['performance']
       },
     }
