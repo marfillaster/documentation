@@ -36,7 +36,6 @@ const launchChromeAndRunLighthouse = (
         passes: [
           {
             passName: 'onlyPass',
-            useThrottling: false,
             skipAudits: ['is-crawlable']
           },
         ],
