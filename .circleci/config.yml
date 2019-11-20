@@ -88,7 +88,7 @@ jobs:
 
   preview:
     docker:
-      - image: circleci/php:7.2-cli-node-browsers
+      - image: circleci/php:7.2-cli-node
         environment:
           BUILD_PATH: /home/circleci/build
     working_directory: ~/build
@@ -108,16 +108,32 @@ jobs:
          name: Deploy Multidev environment
          command: bash .circleci/scripts/deploy-multidev.sh
          no_output_timeout: 15m
-      - run:
-          name: Lighthouse Audit
-          command: .circleci/tests/lighthouse/run
       - store_artifacts:
          path: multidev-log.txt
          destination: multidev-log.txt
 
-  deploy:
+  lighthouse:
     docker:
       - image: circleci/php:7.2-cli-node-browsers
+        environment:
+          BUILD_PATH: /home/circleci/build
+    working_directory: ~/build/gatsby
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Import Functions and Variables
+          command: .circleci/scripts/set-env.sh && source $BASH_ENV
+      - run:
+          name: Lighthouse Audit
+          command: .circleci/tests/lighthouse/run
+      - store_artifacts:
+          path: lighthouse_data/
+          destination: lighthouse_data/
+
+  deploy:
+    docker:
+      - image: circleci/php:7.2-cli-node
     working_directory: ~/build
     steps:
       - queue/until_front_of_line:
@@ -161,12 +177,16 @@ workflows:
               ignore: master
           requires:
             - build
+      - lighthouse:
+          requires:
+            - preview
       - deploy:
           filters:
             branches:
               only: master
           requires:
             - test
+            - lighthouse
 
 
 # Below is CircleCI 1.0 Config Syntax that is still supported on CircleCI 2.0
