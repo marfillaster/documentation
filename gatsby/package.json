@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "lighthouse": "^5.6.0",
+    "@octokit/rest": "^16.35.0",
     "prettier": "^1.16.4"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
