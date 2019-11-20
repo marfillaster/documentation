@@ -33,6 +33,7 @@ echo "export CI_BUILD_URL='${CIRCLE_BUILD_URL}'" >> $BASH_ENV
 echo "export CI_NODE_INDEX='${CIRCLE_NODE_INDEX}'" >> $BASH_ENV
 echo "export CI_REPOSITORY_URL='${CIRCLE_REPOSITORY_URL}'" >> $BASH_ENV
 echo "export ARTIFACTS_DIR_URL='${CIRCLE_BUILD_URL}/artifacts/${CIRCLE_NODE_INDEX}/artifacts'" >> $BASH_ENV
+echo "export ARTIFACTS_FULL_DIR='$BUILD_PATH/artifacts'" >> $BASH_ENV
 
 # Export functions
 echo "source $BUILD_PATH/.circleci/scripts/functions.sh" >> $BASH_ENV

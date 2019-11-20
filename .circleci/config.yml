@@ -178,6 +178,9 @@ workflows:
           requires:
             - build
       - lighthouse:
+          filters:
+            branches:
+              ignore: master
           requires:
             - preview
       - deploy:
