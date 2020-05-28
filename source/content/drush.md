@@ -75,8 +75,8 @@ Drush 9 aliases are written one file per site to the directory `$HOME/.drush/sit
   uri: ${env-name}-example.pantheonsite.io
   user: ${env-name}.3eb7b5dd-8b90-4272-8a80-5474015c37f1
   ssh:
-    options: '-p 2222 -o "AddressFamily inet"'
-    tty: false
+    options: '-T -p 2222 -o "AddressFamily inet"'
+    tty: true
 ```
 
 <Alert type="info" title="Note">
